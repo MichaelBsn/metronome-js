@@ -1,6 +1,6 @@
 const audioContext = new AudioContext()
 const primaryGain = audioContext.createGain()
-primaryGain.gain.setValueAtTime(0.05, 0)
+primaryGain.gain.setValueAtTime(0.1, 0)
 primaryGain.connect(audioContext.destination)
 
 let bpm = 120
@@ -60,17 +60,31 @@ function beep() {
     noteOsc.stop(audioContext.currentTime + 0.25)
 }
 
+function updateMetronome() {
+    bpmDisplay.textContent = bpm
+    bpmControl.value = bpm
+    metronome.timeInterval = 60000 / bpm
+}
+
 const metronome = new Timer(beep, 60000 / bpm, { immediate: true });
 
+const bpmDisplay = document.querySelector('#bpm-display')
+const bpmControl = document.querySelector('#bpm-control');
+bpmControl.addEventListener('input', () => {
+    bpm = bpmControl.value;
+    updateMetronome()
+})
 
 const playPause = document.querySelector(".play-pause")
 playPause.addEventListener('click', () => {
     if (!isRunning) {
         metronome.start()
         isRunning = true
+        playPause.textContent = "pausebutton"
     } else {
         metronome.stop()
         isRunning = false
-    }
+        playPause.textContent = "playbutton"
 
+    }
 })

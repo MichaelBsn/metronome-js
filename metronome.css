@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  width: 200px;
+}
+
+main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  width: 300px;
+  height: 400px;
+}
+
+main p {
+  text-align: center;
+  grid-column: 2/2;
+}
+main input {
+  height: 75%;
+  appearance: slider-vertical;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+main button {
+  height: 100%;
+  width: 100%;
+}
+
+/*# sourceMappingURL=metronome.css.map */

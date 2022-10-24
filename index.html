@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>metronome-js</title>
+    <link rel="stylesheet" href="metronome.css">
 </head>
 
 <body>
-    <button class="play-pause">Play/Pause</button>
+    <main>
+        <h1>BPM: <span id="bpm-display">120</span></h1>
+        <input type="range" id="bpm-control" name="bpm-control" min="30" max="200" step="1" value="120">
+        <button class="play-pause">playbutton</button>
+    </main>
+
 
 
     <script src="metronome.js"></script>
